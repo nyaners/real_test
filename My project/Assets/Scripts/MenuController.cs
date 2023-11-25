@@ -58,5 +58,25 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1),
     }
+    public void SwitchOptions()
+    {
+        if (optionsPanel.activeSelf)
+        {
+             PlayerPrefs.SetFloat('Volume', volumeSlider.value);
+        }
+        menuPanel.SetActive(!menuPanel.activeSelf);
+        optionsPanel.SetActive(!optionsPanel.activeSelf);
+
+    
+    }
+    public void ResetScore()
+    {
+        PlayerPrefs.SetInt('BestScore', 0);
+        bestScore = 0   
+    }
+    public void QuitGame()
+    {
+        Application.Quit()
+    }
 
 }
